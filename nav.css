@@ -1,0 +1,40 @@
+body{
+    margin:0;
+}
+
+
+nav{
+    background-color:#F8F8F8;
+    color: #707070;
+}
+
+.navigationHeader{
+    text-align: center;
+}
+
+.navItem{
+    margin: 0;
+}
+
+h1{
+    color: #143774;
+}
+
+li{
+    list-style: none;
+}
+
+p{
+    color:#1792D2;
+}
+
+ul{
+    padding:0;
+    display:flex;
+    justify-content: center;
+   
+}
+
+li{
+    margin: 15px;
+}
