@@ -16,10 +16,12 @@
     font-weight:400;
     color: #143774;
     font-size:2rem;
+    /*for spacing*/
     margin:0;
  }
  
  .subtitle{
+    /*for spacing*/
     margin:0;
     font-weight: 700;
     color: #1792d2;
@@ -27,8 +29,24 @@
  }
 
  /*layout*/
+
+
+ /*generic container*/
+ .container{
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+ }
+
+ /*modifier class*/
+ .container-nav{
+    display:flex;
+    /*only TWO items in our flex container*/
+    justify-content: space-between;
+ }
+
  header {
-    text-align: center;
+    /*text-align: center;*/
     background: #f8f8f8;
     /*default 16px X 2 = 32px*/
     padding: 2em 0;
@@ -38,13 +56,15 @@
 
 nav ul {
     list-style: none;
+    /*remove the extra padding for the dots*/
     padding: 0;
     display: flex;
     justify-content: center;
 }
 
 nav li {
-    margin: 0 1em;
+    /*margin: 0 1em;*/
+    margin-left: 2em;
 }
 
 nav a {
@@ -66,4 +86,22 @@ nav a:focus {
 
 .current-page:hover{
     color: #707070;
+}
+
+@media (max-width: 675px){
+    .container-nav{
+        flex-direction: column;
+    }
+
+    header{
+        text-align: center;
+    }
+
+    nav ul{
+        flex-direction: column;
+    }
+
+    nav li{
+        margin: .5em 0;
+    }
 }
