@@ -7,18 +7,51 @@
  body{
     margin:0;
     font-family: 'Ubuntu', sans-serif;
+    font-size: 1.125rem;
+    /*applied to everything unless you overwrite it with something else*/
+    font-weight: 300;
  }
+
+ /*extremely common on most sites*/
+ img{
+    max-width: 100%;
+    display:block;
+ }
+
+ /*navigation styling*/
 
  /*topography*/
 
- h1{
+ /*header topography*/
+ h1, h2, h3{
     font-family: 'Lora', serif;
     font-weight:400;
+    color: #143774;
+    margin-top: 0;;
+ }
+
+ h1{
     color: #143774;
     font-size:2rem;
     /*for spacing*/
     margin:0;
  }
+
+ a{
+    color: #1792d2;
+    /*jumps to next weight in the google font*/
+}
+
+ a:hover,
+ a:focus{
+    color: #143774;
+ }
+
+ strong{
+    font-weight: 700;
+ }
+
+ /*header subtitle*/
  
  .subtitle{
     /*for spacing*/
@@ -28,10 +61,36 @@
     font-size: .75rem;
  }
 
+ /*artical title font size */
+.artical-title{
+   font-size: 1.5rem;
+}
+
+.artical-read-more, 
+.artical-info{
+    font-size: 0.875rem;
+
+}
+
+.article-read-more{
+    color: #1792d2;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.article-read-more:hover,
+.article-read-more:focus{
+    color: #143774;
+    text-decoration: underline;
+}
+
+.article-info{
+    margin: 2em 0;
+}
+
  /*layout*/
 
-
- /*generic container*/
+ /*generic container - this can help keep everything on the page centered header, body, ect*/
  .container{
     width: 90%;
     max-width: 900px;
@@ -39,8 +98,9 @@
  }
 
  /*modifier class*/
- .container-nav{
+ .container-flex{
     display:flex;
+    flex-direction: column;
     /*only TWO items in our flex container*/
     justify-content: space-between;
  }
@@ -50,6 +110,24 @@
     background: #f8f8f8;
     /*default 16px X 2 = 32px*/
     padding: 2em 0;
+
+    text-align: center;
+    margin-bottom: 3em;
+}
+
+/*on bigger screens -> mobile first and build out*/
+@media (min-width: 675px){
+    .container-flex{
+        flex-direction: row;
+    }
+
+    main{
+        width: 75%;
+    }
+
+    aside{
+        width: 20%;
+    }
 }
 
 /*navigation*/
@@ -89,14 +167,7 @@ nav a:focus {
 }
 
 @media (max-width: 675px){
-    .container-nav{
-        flex-direction: column;
-    }
-
-    header{
-        text-align: center;
-    }
-
+    /*also change the list's flex direction*/
     nav ul{
         flex-direction: column;
     }
@@ -105,3 +176,61 @@ nav a:focus {
         margin: .5em 0;
     }
 }
+
+/*articles*/
+
+.article-featured{
+    border-bottom: #707070 1px solid;
+    padding-bottom: 2em;
+    margin-bottom: 2em;
+
+}
+
+.article-recent{
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 2em;
+}
+
+/*our html is written in a logical way, here we change the order without changing the 
+    our html layout.
+*/
+.article-recent-main{
+    order: 2;
+}
+
+.article-recent-secondary{
+    order:1;
+}
+
+
+/*media query for secondary articles */
+
+@media (min-width: 675px) {
+    .article-recent {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .article-recent-main {
+        width: 70%;
+    }
+    
+    .article-recent-secondary {
+        width: 25%;
+    }
+}
+
+
+/*
+@media (min-width: 550px) {
+    .article-recent-main {
+        margin-top: -2.5em;
+    }
+    
+    .article-info {
+        text-align: right;
+    }
+}
+
+*/
